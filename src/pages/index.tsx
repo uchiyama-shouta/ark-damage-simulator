@@ -17,12 +17,21 @@ const Home: NextPage = () => {
             onChange={setName}
             value={name}
             data={data.map((data) => data.dinosaur)}
-            placeholder=""
+            classNames={{
+              input: "text-xl",
+            }}
           />
         </div>
         <div>
           攻撃力(%の入力は不要)
-          <Input type="number" value={melee || ""} onChange={handleMelee} />
+          <Input
+            type="number"
+            value={melee || ""}
+            onChange={handleMelee}
+            classNames={{
+              input: "text-xl",
+            }}
+          />
         </div>
       </div>
       <p className="mt-7 text-center">
