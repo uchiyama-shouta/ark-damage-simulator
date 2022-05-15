@@ -43,7 +43,7 @@ export default class _Document extends Document {
           <meta name="description" content="this is myapp" />
           <link rel="icon" sizes="192x192" href="/favicons/icon-192x192.png" />
           <link rel="icon" href="/favicons/favicon.ico" />
-          <link rel="manifest" href="/favicons/manifest.json" />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />
