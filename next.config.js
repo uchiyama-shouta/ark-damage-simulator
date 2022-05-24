@@ -1,6 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const withPWA = require("next-pwa");
+
 const runtimeCaching = require("next-pwa/cache");
+
+const withPWA = require("next-pwa")({
+  pwa: { dest: "public", runtimeCaching },
+});
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+const withPlugins = require("next-compose-plugins");
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -10,7 +20,6 @@ const config = {
   poweredByHeader: false,
 };
 
-module.exports = withPWA({
-  pwa: { dest: "public", runtimeCaching },
+module.exports = withPlugins([withPWA, withBundleAnalyzer], {
   ...config,
 });
