@@ -1,6 +1,7 @@
 import type { ComponentProps, Dispatch, FC, SetStateAction } from "react";
 import { useState } from "react";
 import { Combobox } from "@headlessui/react";
+import { hiraToKana } from "utiles/hiraToKana";
 
 const classNames = (...classes: string[]): string =>
   classes.filter(Boolean).join(" ");
@@ -21,17 +22,17 @@ const Autocomplete: FC<Props> = ({
   const [query, setQuery] = useState("");
 
   const handleQuery: ComponentProps<"input">["onChange"] = (e) =>
-    setQuery(e.target.value);
+    setQuery(hiraToKana(e.target.value));
 
   const filteredPeople =
     query === "" ? data : data.filter((data) => data.includes(query));
 
   return (
     <Combobox as="div" value={selectedDino} onChange={handleSelected}>
-      <Combobox.Label className="block font-medium ">{label}</Combobox.Label>
+      <Combobox.Label className="font-medium">{label}</Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input
-          className="py-1 pr-10 pl-3 w-full text-xl bg-white rounded-md border border-gray-400 focus:border-[#339af0] focus:outline-none focus:ring-1 focus:ring-[#339af0]"
+          className="py-1 pr-10 pl-3 w-full text-xl rounded-md border border-gray-400 focus:border-[#339af0] focus:outline-none focus:ring-1 focus:ring-[#339af0]"
           onChange={handleQuery}
           displayValue={(dino: string) => dino}
         />
@@ -44,7 +45,7 @@ const Autocomplete: FC<Props> = ({
                 value={dinoName}
                 className={({ active }) =>
                   classNames(
-                    "relative py-2 pr-9 pl-3 my-1 mx-2 text-black cursor-default select-none",
+                    "relative py-2 pr-9 pl-3 my-1 mx-2 select-none",
                     active ? "bg-gray-100 " : "",
                   )
                 }

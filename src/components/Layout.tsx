@@ -9,7 +9,7 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
         <title>ARK ダメージシミュレーター</title>
       </Head>
       <Header />
-      <div className="px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+      <div className="px-4 sm:px-6 lg:px-8 mx-auto mt-5 max-w-7xl">
         <div className="mx-auto max-w-3xl">{children}</div>
       </div>
     </>
