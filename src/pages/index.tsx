@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Autocomplete } from "@mantine/core";
+import Autocomplete from "components/Autocomplete";
 
 import Layout from "components/Layout";
 import { data } from "utiles/data";
@@ -16,18 +16,12 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div>
-        <label>
-          恐竜の名前
-          <Autocomplete
-            // id="name"
-            onChange={handleName}
-            value={name}
-            data={data.map((data) => data.dinosaur)}
-            classNames={{
-              input: "text-xl",
-            }}
-          />
-        </label>
+        <Autocomplete
+          label="恐竜の名前"
+          value={name}
+          onChange={handleName}
+          data={data.map((data) => data.dinosaur)}
+        />
 
         <div className="h-5" />
         <label className="block font-medium">
@@ -35,7 +29,7 @@ const Home: NextPage = () => {
           <div className="mt-1">
             <input
               type="number"
-              className="block py-1 w-full text-xl font-medium rounded-md border-gray-300 focus:border-[#339af0] focus:ring-[#339af0]"
+              className="block py-1 w-full text-xl font-medium rounded-md border-gray-400 focus:border-[#339af0] focus:ring-[#339af0]"
               value={melee || ""}
               onChange={handleMelee}
             />

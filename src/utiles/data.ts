@@ -98,3 +98,5 @@ export const data = [
   { dinosaur: "アンモナイト", baseDamage: 0 },
   { dinosaur: "ディプロドクス", baseDamage: 0 },
 ] as const;
+
+export type Data = { dinosaur: string; baseDamage: number };
