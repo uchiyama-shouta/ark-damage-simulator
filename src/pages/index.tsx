@@ -21,9 +21,8 @@ const Home: NextPage = () => {
         onChange={handleName}
         data={data.map((data) => data.dinosaur)}
       />
-      
-      <div className="h-5" />
-      <label className="block font-medium">
+
+      <label className="block mt-5 font-medium">
         攻撃力(%の入力は不要)
         <div className="mt-1">
           <input
